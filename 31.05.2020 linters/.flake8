@@ -1,0 +1,33 @@
+
+[flake8]
+ignore=
+    # Missing docstring in public module
+    D100,
+    # Missing docstring in public package
+    D104,
+    # Missing docstring in __init__
+    D107
+select=
+    # Module imported but unused
+    F401,
+    # Local variable name referenced before assignment
+    F823,
+    # Local variable name is assigned to but never used
+    F841,
+    # Runtime (SyntaxError or IndentationError, IOError)
+    E9,
+    # Python builtins
+    A,
+    # Docstrings
+    D1
+filename=
+    *.py
+
+# Flake8 standart error codes
+# https://pep8.readthedocs.io/en/release-1.7.x/intro.html
+
+# plugins
+# Builtins error codes (A)
+# https://pypi.org/project/flake8-builtins/
+# Docstring error codes (D)
+# http://www.pydocstyle.org/en/latest/error_codes.html

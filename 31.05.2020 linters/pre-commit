@@ -1,0 +1,35 @@
+#!/bin/bash
+
+LIBS=(flake8 \
+      flake8-builtins \
+      flake8-docstrings \
+      autoflake \
+      autopep8)
+
+CHECKS=0
+
+for lib in "${LIBS[@]}"
+do
+    pip freeze | cut -f1 -d'=' | grep "${lib}$"
+    if [ $? -ne 0 ]
+        then
+            echo "${lib} must be installed. Try 'pip install ${lib}'"
+            CHECKS=$(($CHECKS+1))
+        fi
+done
+
+if [[ $CHECKS > 0 ]]
+then
+    exit 1
+fi
+
+# E2 Whitespace
+# E3 blank lines
+# W2 Whitespace warning
+autopep8 --in-place --select=E2,E3,W2 -r .
+
+autoflake --in-place --remove-all-unused-imports --remove-unused-variables -r .
+
+git diff | flake8 --diff
+
+
