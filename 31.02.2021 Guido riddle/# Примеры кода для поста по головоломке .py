@@ -1,7 +1,7 @@
 # Примеры кода для поста по головоломке от Гвидо  ван Россума
 # https://zen.yandex.ru/media/id/5b7ae22633ef9b00a8cc79f3/python-golovolomka-6014e303d3c91450c6c0fd33
 
-# Пример с классом
+# Загадка
 
 x = 0
 y = 0
